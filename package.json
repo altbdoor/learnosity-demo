@@ -1,0 +1,23 @@
+{
+    "dependencies": {
+        "express": "^4.18.2",
+        "learnosity-sdk-nodejs": "github:Learnosity/learnosity-sdk-nodejs",
+        "lodash.merge": "^4.6.2",
+        "nodemon": "^2.0.20",
+        "uuid": "^9.0.0"
+    },
+    "scripts": {
+        "pretty": "prettier --ignore-path .gitignore --write ./**/*.{json,js,html,css,ts}",
+        "start-server": "nodemon src/server/server.js"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "semi": true,
+        "singleQuote": true,
+        "printWidth": 120
+    },
+    "devDependencies": {
+        "prettier": "^2.0.0"
+    },
+    "private": true
+}

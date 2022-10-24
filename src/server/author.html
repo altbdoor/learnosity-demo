@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Learnosity demo - Author</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="sticky-top bg-dark p-2 bg-opacity-75">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-request-data">
+                See request data
+            </button>
+        </div>
+        <div id="learnosity-author"></div>
+
+        <div class="modal fade" id="modal-request-data">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5">Request data</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <pre><code></code></pre>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- https://help.learnosity.com/hc/en-us/articles/360001268538-Release-Cadence-and-Version-Lifecycle -->
+        <!-- https://help.learnosity.com/hc/en-us/articles/360000754798-What-Regions-and-Endpoints-Should-I-Use- -->
+        <!-- <script src="https://authorapi.learnosity.com?latest-lts"></script> -->
+        <script src="https://authorapi.learnosity.com?v2022.2.LTS"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            fetch('/api/get-learnosity-data')
+                .then((res) => res.json())
+                .then((res) => {
+                    document.querySelector('#modal-request-data code').textContent = JSON.stringify(res, undefined, 2);
+
+                    LearnosityAuthor.init(res, {
+                        readyListener() {
+                            console.log('ready');
+                        },
+                        errorListener(e) {
+                            console.error(e);
+                        },
+                    });
+                });
+        </script>
+    </body>
+</html>
