@@ -7,8 +7,9 @@
         "uuid": "^9.0.0"
     },
     "scripts": {
-        "pretty": "prettier --ignore-path .gitignore --write ./**/*.{json,js,html,css,ts}",
-        "start-server": "nodemon src/server/server.js"
+        "pretty": "prettier --ignore-path .gitignore --write './**/*.{js,html,css,json}'",
+        "start-server": "nodemon src/server/server.js",
+        "start-client": "nodemon src/client/server.js"
     },
     "prettier": {
         "tabWidth": 4,
