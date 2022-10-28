@@ -55,13 +55,13 @@ class Question {
                     /** @type {HTMLInputElement} */
                     const inputField = taskCountWrapper.querySelector(`.${PREFIX}-taskcount-input`);
                     if (!inputField.value) {
-                        return
+                        return;
                     }
 
                     fetch('http://localhost:4000/api/check-answer', {
                         method: 'POST',
                         body: JSON.stringify({ input: inputField.value, uuid }),
-                        headers: { 'Content-Type': 'application/json' }
+                        headers: { 'Content-Type': 'application/json' },
                     })
                         .then((res) => res.json())
                         .then((res) => {

@@ -8,11 +8,7 @@ module.exports = {
     type: 'submit_practice',
     session_id: uuid.v4(),
     user_id: 'demos@learnosity.com',
-    items: [
-        'f0658096-4552-435a-89ac-1aaca9dae727',
-        'Demo3',
-        'Demo4',
-    ],
+    items: ['f0658096-4552-435a-89ac-1aaca9dae727', 'Demo3', 'Demo4'],
     config: {
         title: 'Welcome to demo activity!',
         configuration: {

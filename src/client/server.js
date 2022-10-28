@@ -109,8 +109,8 @@ app.post('/api/check-answer/', (req, res) => {
         input,
         complexity: input.length,
         uuid: req.body.uuid,
-    })
-})
+    });
+});
 
 app.listen(port, () => {
     console.log(`express running on ${port}`);
